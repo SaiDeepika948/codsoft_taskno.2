@@ -1,0 +1,315 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 5px;
+            animation: fadeIn 2s;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            animation: slideIn 2s;
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4facfe;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .about {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 5px;
+            background: #4facfe;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.5s;
+        }
+
+        .about img:hover {
+            transform: scale(1.1);
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .about p {
+            font-size: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .skills {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .skills h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .skills li {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skills li::before {
+            content: '✔';
+            color: #4facfe;
+            position: absolute;
+            left: 0;
+        }
+
+        .projects {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .projects h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .projects .project-item {
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .projects img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .projects .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects .project-item:hover img {
+            transform: scale(1.05); 
+        }
+
+        .projects h3 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .projects p {
+            font-size: 1em;
+        }
+
+        .resume {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .resume h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .resume a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4facfe;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .resume a:hover {
+            background-color: #00f2fe;
+        }
+
+        .contact {
+            background-color: #333;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer p {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Your Name</h1>
+        <p>Creative Developer | Designer | Programmer</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="about" id="about">
+        <img src="your-image.jpg" alt="Your Image">
+        <h2>About Me</h2>
+        <p>Hello! I'm a passionate web developer with experience in creating dynamic and user-friendly websites. I love bringing ideas to life and enjoy working with various technologies to build impactful projects.</p>
+    </section>
+    <section class="skills" id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Responsive Web Design</li>
+        </ul>
+    </section>
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+        <div class="project-item">
+            <img src="project1.jpg" alt="Project 1">
+            <h3>Project Title 1</h3>
+            <p>A brief description of the project and its features.</p>
+        </div>
+        <div class="project-item">
+            <img src="project2.jpg" alt="Project 2">
+            <h3>Project Title 2</h3>
+            <p>A brief description of the project and its features.</p>
+        </div>
+    </section>
+
+    <section class="resume" id="resume">
+        <h2>Resume</h2>
+        <a href="resume.pdf" download>Download My Resume</a>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: your.email@example.com</p>
+        <p>Phone: +123-456-7890</p>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
